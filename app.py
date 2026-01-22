@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for, session
 
 app = Flask(__name__)                                            # Cria uma instância da aplicação Flask
 
@@ -48,17 +48,22 @@ def contato():
 @app.route('/registro', methods=["GET", "POST"])
 def registro():
     if request.method == "POST":
-        username = request.form.get('username')
-        senha = request.form.get('senha')
-        email = request.form.get('email')
-        nome = request.form.get('nome')
+        username = request.form.get('username').strip()
+        senha = request.form.get('senha').strip()
+        email = request.form.get('email').strip()
+        nome = request.form.get('nome').strip()
     
         if not username or not senha:
             flash('Usuário e senha são obrigatórios!', "error")
             return redirect(url_for('registro'))
         
+        #senha
+        if len(senha) < 2:
+            flash('A senha deve ter no mínimo 2 caracteres', "error")
+            return redirect(url_for('registro'))
+        
         if username in usuarios:
-            flash('Esse usuário já existe! Escolha outro.')
+            flash('Esse usuário já existe! Escolha outro.', "error")
             return redirect(url_for('registro'))
 
         #salva o novo usuario
