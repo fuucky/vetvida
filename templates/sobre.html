@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+ 
+{% block title %}Sobre - Clínica VetVida{% endblock %}
+
+{% block content %}
+    <h1 style="font-size: 18px; text-align: center;">Sobre a Clínica Veterinária VetVida 🐾</h1>
+    <p style="font-size: 14px; text-align: center;"> A Clínica Veterinária VetVida é dedicada ao cuidado e bem-estar dos seus animais de estimação. </p>
+    <ul style="font-size: 14px; list-style: none; padding: 0; text-align: center;">
+        <li>🐾 Fundada em 2026</li>
+        <li>📍 Localizada em Limeira</li>
+        <li>👩‍⚕️ Equipe experiente</li>
+        <li>🛁 Serviços completos para pets</li>
+        <li>🚑 Atendimento 24h em emergências</li>
+    </ul>    
+
+    <!-- imagens e conteúdos sobre-->
+    <img src="{{ url_for('static', filename='waitingroom.png') }}"
+    alt="Pet feliz" style="width: 100%; max-width: 600px; display: block; margin: 20px auto; border-radius: 10px;">
+
+    <!-- resto do conteudo sobre -->
+{% endblock %}
+    

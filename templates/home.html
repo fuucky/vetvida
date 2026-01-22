@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+ 
+{% block title %}Home - Clínica VetVida{% endblock %}
+
+{% block content %}
+    <p style="font-size: 14px; text-align: center;"> Seu pet bem é a nossa alegria </p>
+    <!-- imagens e conteúdos home -->
+    <img src="{{ url_for('static', filename='waitingroom.png') }}"
+    alt="Pet feliz" style="width: 100%; max-width: 600px; display: block; margin: 20px auto; border-radius: 10px;">
+
+    
+
+    <!-- resto do conteudo home -->
+{% endblock %}

@@ -1,0 +1,20 @@
+# Ambientes virtuais
+venv/
+.venv/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivos do macOS/Windows
+.DS_Store
+Thumbs.db
+
+# Outros arquivos grandes ou sensíveis
+*.log
+*.env  # se tiver secrets no futuro

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+ 
+{% block title %}Serviços - Clínica VetVida{% endblock %}
+
+{% block content %}
+    <p style="font-size: 14px; text-align: center;"> Oferecemos uma ampla gama de serviços veterinários para garantir a saúde e felicidade do seu pet. </p>
+    <ul style="font-size: 14px; list-style: none; padding: 0; text-align: center;">
+        <li> Consultas médicas </li>
+        <li> Vacinação </li>
+        <li> Banho e Tosa </li>
+        <li> Exames laboratoriais </li>
+        <li> Tratamentos de emergência </li>
+    </ul>
+
+    <!-- imagens e conteúdos contato -->
+    <img src="{{ url_for('static', filename='waitingroom.png') }}"
+    alt="Pet feliz" style="width: 100%; max-width: 600px; display: block; margin: 20px auto; border-radius: 10px;">
+
+    <!-- resto do conteudo contato -->
+
+{% endblock %}
+    

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Contato - Clínica VetVida{% endblock %}
+
+{% block content %}
+    <h2 style="color: #006400; text-align: center; margin-bottom: 20px;">
+        Entre em Contato
+    </h2>
+
+    <!-- Mensagens flash (sucesso/erro) -->
+    <!-- Mensagens flash (sucesso/erro) -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'success' %}
+                    <p style="color: green; font-weight: bold; text-align: center; margin: 15px 0;">
+                        {{ message }}
+                    </p>
+                {% else %}
+                    <p style="color: red; font-weight: bold; text-align: center; margin: 15px 0;">
+                        {{ message }}
+                    </p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}                                                   
+
+    <!-- Informações de contato -->
+    <p style="font-size: 16px; text-align: center; margin-bottom: 15px;">
+        Entre em contato conosco para agendamentos, dúvidas ou emergências.
+    </p>
+
+    <ul style="font-size: 15px; list-style: none; padding: 0; text-align: center; margin-bottom: 30px;">
+        <li><strong>Telefone / WhatsApp:</strong> (19) 9999-9999</li>
+        <li><strong>Email:</strong> contato@vetvida.com.br</li>
+        <li><strong>Endereço:</strong> Rua das Flores, 123 - Limeira/SP</li>
+    </ul>
+
+    <!-- Imagem da sala de espera -->
+    <img src="{{ url_for('static', filename='waitingroom.png') }}"
+         alt="Sala de espera da clínica"
+         style="width: 100%; max-width: 600px; display: block; margin: 0 auto 30px auto; 
+                border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+
+    <!-- Formulário de contato -->
+    <form method="POST" 
+          style="max-width: 450px; margin: 0 auto; padding: 20px; 
+                 background-color: #ffffff; border-radius: 10px; 
+                 box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+
+        <div style="margin-bottom: 15px;">
+            <label for="nome" style="display: block; margin-bottom: 6px; font-weight: bold;">
+                Nome:
+            </label>
+            <input type="text" id="nome" name="nome" required 
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label for="email" style="display: block; margin-bottom: 6px; font-weight: bold;">
+                Email:
+            </label>
+            <input type="email" id="email" name="email" required 
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label for="mensagem" style="display: block; margin-bottom: 6px; font-weight: bold;">
+                Mensagem:
+            </label>
+            <textarea id="mensagem" name="mensagem" rows="5" required 
+                      style="width: 100%; padding: 10px; border: 1px solid #ccc; 
+                             border-radius: 5px; resize: vertical;"></textarea>
+        </div>
+
+        <button type="submit" 
+                style="width: 100%; padding: 12px; background-color: #006400; color: white; 
+                       border: none; border-radius: 5px; font-size: 16px; cursor: pointer; 
+                       transition: background-color 0.3s;">
+            Enviar Mensagem
+        </button>
+    </form>
+
+{% endblock %}
